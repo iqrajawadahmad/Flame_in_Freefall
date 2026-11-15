@@ -60,8 +60,3 @@ Optional evidence files for more analysis, placed in `data/processed_data/`:
 2. Never mix parameters with different units in one chart or statistic.
 3. No API keys in GitHub (use Streamlit secrets / env vars). The app must work without AI.
 4. Show source references wherever findings appear.
-
-## Deploy (Streamlit Community Cloud)
-Push the project to a GitHub repository, then create an app at Streamlit Community Cloud using the repository and
-`app.py` as the entry point. Include `requirements.txt` and `data/nasa_combustion.db`; no API key is required.
-Run the test suite locally before publishing. Do not upload source data unless you have permission to share it.
