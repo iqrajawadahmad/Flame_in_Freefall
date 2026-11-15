@@ -1,0 +1,17 @@
+investigation_id,source,issue,action,rows_affected
+PSI-60,PSI-60_SPICE/i_Investigation.txt,Investigation Acronym is blank,used 'SPICE' from the study-design descriptor,1
+PSI-60,PSI-60_SPICE/i_Investigation.txt,Flight Platform blank (ground investigation),stored NULL -> shown as Not available,1
+PSI-62,PSI-62_BASS/i_Investigation.txt,Investigation Acronym is blank,used 'BASS' from the study-design descriptor,1
+PSI-62,PSI-62_BASS/i_Investigation.txt,Flight Platform blank (ground investigation),stored NULL -> shown as Not available,1
+PSI-69,PSI-69_FLEX/PSI-69_Experimental table_FLEX.csv,"file is cp1252, not UTF-8 (en-dash/missing-value marker bytes)",decoded as cp1252,1
+PSI-69,PSI-69_FLEX/PSI-69_Experimental table_FLEX.csv,"Column headers 'O', 'N', 'CO' lost their subscript 2","interpreted as O2, N2, CO2 (mole fractions sum to 0.98-1.01 for every test, supporting this); He kept as helium. CONFIRM with the FLEX data dictionary.",274
+PSI-69,PSI-69_FLEX/PSI-69_Experimental table_FLEX.csv,Column 'Burning rate; mm' has a length unit for a rate,values kept as-is; unit stored as 'unverified (source label: mm)'. A droplet burning rate is normally mm^2/s - verify before using the numbers.,274
+PSI-69,PSI-69_FLEX/PSI-69_Experimental table_FLEX.csv,Ambient pressure column is mmHg; not stated whether initial,treated as ambient pressure (same meaning as ACME 'pinit'),274
+PSI-69,PSI-69_FLEX/PSI-69_Experimental table_FLEX.csv,FLEX Identifier repeated: ['193F001'],kept both rows (Test # is unique); run_id uses Test #,2
+PSI-10,PSI_10_ACME/PSI-10_Experimental table_Flame Design_Normal Flame.csv,Tests with 'RAMP'/'RAMPED'/'LOW O2' instead of numbers,stored NULL (not 0); kept in run table with flag; pressure columns of those tests are numeric and kept,60
+PSI-10,PSI_10_ACME/PSI-10_Experimental table_Flame Design_Inverse Flame.csv,Tests with 'RAMP'/'RAMPED'/'LOW O2' instead of numbers,stored NULL (not 0); kept in run table with flag; pressure columns of those tests are numeric and kept,11
+PSI-10,PSI_10_ACME/,Normal-flame table contains propane (C3H8) tests,excluded from fuel-based summary values (median uses ethylene only); kept in run table,20
+PSI-10,PSI_10_ACME/,"Inverse table 'XO2' is the burner-SUPPLY oxygen fraction, normal table 'XO2 (init)' is the AMBIENT oxygen fraction",stored under different parameter names so they are never pooled,1
+PSI-98,PSI_98_SAFFIRE-1/PSI-98_Experimental table_SAFFIRE-1.csv,"Rows 'F1C1/F1C2', 'F2C1/F2C2' are pre-test flow-visualisation file labels, not samples",excluded from run data,2
+PSI-98,PSI_98_SAFFIRE-1/PSI-98_Experimental table_SAFFIRE-1.csv,Sample thickness 0.37 'cm' (3.7 mm) is implausible for a fabric sample,converted using the stated unit (cm->m) but flagged: the source label may really be mm - verify,2
+PSI-98,PSI_98_SAFFIRE-1/PSI-98_Experimental table_SAFFIRE-1.csv,Percent O2 given as a range ('21.5 - 21.7') and as '~ 21.5',range stored with low/high and midpoint; '~' value stored with approximate flag,2
